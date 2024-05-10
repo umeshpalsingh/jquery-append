@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="append">
+        <form id="1">
+            <label for="">Product Name</label>
+            <input class="input_field" type="text">
+            <label for="">Meta Title</label>
+            <input class="input_field" type="text">
+            <label for="">Meta Key</label>
+            <input class="input_field" type="text">
+            <label for="">Meta Description</label>
+            <textarea class="input_description"></textarea>
+            <button type="button">Update</button>
+            <select name="" class="selecttag">
+                <option value="first">first</option>
+                <option value="second">second</option>
+                <option value="third">third</option>
+                <option value="fourth">fourth</option>
+            </select>
+        </form>
+    </div>
+    
+    <button class="add">Add</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function addCounter() {     //this function set the counter variable value static.
+            var cust_count = 1;
+                return function() {
+                    cust_count++;
+                    return cust_count;   //return the incremented value on click
+                };
+            }               
+            var countVar = addCounter();
+            $('.add').click(function() {
+               var id = countVar();
+               $('.append').append('<form id="'+id+'">' 
+                    + '<label for="">Product Name</label> '
+                    + '<input class="input_field" type="text"> '
+                    + '<label for="">Meta Title</label> '
+                    + '<input class="input_field" type="text"> '
+                    + '<label for="">Meta Key</label> '
+                    + '<input class="input_field" type="text"> '
+                    + '<label for="">Meta Description</label> '
+                    + '<textarea class="input_description"></textarea> '
+                    + '<button type="button">Update</button>'
+                    + '<select name="" class="selecttag">'
+                    + '<option value="first">first</option>'
+                    + '<option value="second">second</option>'
+                    + '<option value="third">third</option>'
+                    + '<option value="fourth">fourth</option>'
+                    + '</select>'
+                    + '</form>'
+                );
+            });
+        });
+    </script>
+</body>
+</html>
